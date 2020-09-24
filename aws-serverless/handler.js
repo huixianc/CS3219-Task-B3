@@ -22,7 +22,7 @@ module.exports.create = (event, context, callback) => {
         callback(null, {
           statusCode: 200,
           body: JSON.stringify(contact),
-          header: corsHeaders
+          headers: corsHeaders
         })
       )
       .catch(err =>
@@ -30,7 +30,7 @@ module.exports.create = (event, context, callback) => {
           statusCode: err.statusCode || 500,
           headers: { 'Content-Type': 'text/plain' },
           body: 'Could not create contact.',
-          header: corsHeaders
+         
         })
       );
   });
@@ -45,7 +45,7 @@ module.exports.getAll = (event, context, callback) => {
         callback(null, {
           statusCode: 200,
           body: JSON.stringify(contacts),
-          header: corsHeaders
+          headers: corsHeaders
         })
       )
       .catch(err =>
@@ -53,7 +53,7 @@ module.exports.getAll = (event, context, callback) => {
           statusCode: err.statusCode || 500,
           headers: { 'Content-Type': 'text/plain' },
           body: 'Could not fetch the contacts.',
-          header: corsHeaders
+          
         })
       );
   });
@@ -70,7 +70,7 @@ module.exports.update = (event, context, callback) => {
         callback(null, {
           statusCode: 200,
           body: JSON.stringify(contact),
-          header: corsHeaders
+          headers: corsHeaders
         })
       )
       .catch(err =>
@@ -78,7 +78,7 @@ module.exports.update = (event, context, callback) => {
           statusCode: err.statusCode || 500,
           headers: { 'Content-Type': 'text/plain' },
           body: 'Could not fetch the contact.',
-          header: corsHeaders
+          
         })
       );
   });
@@ -96,7 +96,7 @@ module.exports.delete = (event, context, callback) => {
             message: 'Removed contact with id: ' + contact._id,
             note: contact
           }),
-          header: corsHeaders
+          headers: corsHeaders
         })
       )
       .catch(err =>
@@ -104,7 +104,7 @@ module.exports.delete = (event, context, callback) => {
           statusCode: err.statusCode || 500,
           headers: { 'Content-Type': 'text/plain' },
           body: 'Could not fetch the contact.',
-          header: corsHeaders
+         
         })
       );
   });
